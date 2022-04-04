@@ -9,6 +9,13 @@ pip install -r requirement.txt
 
 ## 2. Run Server
 Need to install Node.js first.
+if you don't have ./tyadmin/node_modules, you need to npm install first:
+```
+
+cd tyadmin && npm install && npm run build
+```
+
+Run server:
 ```
 
 python manage.py createsuperuser # Create your superuser account, only need when you first run the project.
