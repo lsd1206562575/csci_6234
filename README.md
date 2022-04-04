@@ -9,6 +9,7 @@ pip install -r requirement.txt
 
 ## 2. Run Server
 Need to install Node.js first.
+
 if you don't have ./tyadmin/node_modules, you need to npm install first:
 ```
 
