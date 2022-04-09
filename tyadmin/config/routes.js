@@ -1,0 +1,103 @@
+[
+    {
+        name: 'Home',
+        path: '/xadmin/index',
+        icon: 'dashboard',
+        component: './TyAdminBuiltIn/DashBoard'
+    },
+    {
+        path: '/xadmin/',
+        redirect: '/xadmin/index',
+    },
+    {
+        name: 'Authentication and Authorization',
+        icon: 'BarsOutlined',
+        path: '/xadmin/auth',
+        routes:
+        [
+            {
+                name: 'permission',
+                path: '/xadmin/auth/permission',
+                component: './AutoGenPage/PermissionList',
+            },
+            {
+                name: 'group',
+                path: '/xadmin/auth/group',
+                component: './AutoGenPage/GroupList',
+            }
+        ]
+    },
+    {
+        name: 'Demo',
+        icon: 'BarsOutlined',
+        path: '/xadmin/demo',
+        routes:
+        [
+            {
+                name: 'Symptom',
+                path: '/xadmin/demo/symptom',
+                component: './AutoGenPage/SymptomList',
+            },
+            {
+                name: 'Medicine',
+                path: '/xadmin/demo/medicine',
+                component: './AutoGenPage/MedicineList',
+            },
+            {
+                name: 'Doctor visit',
+                path: '/xadmin/demo/doctor_visit',
+                component: './AutoGenPage/Doctor_visitList',
+            },
+            {
+                name: 'Trip',
+                path: '/xadmin/demo/trip',
+                component: './AutoGenPage/TripList',
+            },
+            {
+                name: 'News',
+                path: '/xadmin/demo/news_info',
+                component: './AutoGenPage/News_infoList',
+            },
+            {
+                name: 'Take out food',
+                path: '/xadmin/demo/take_out',
+                component: './AutoGenPage/Take_outList',
+            },
+            {
+                name: 'UserProfile',
+                path: '/xadmin/demo/user_profile',
+                component: './AutoGenPage/UserProfileList',
+            }
+        ]
+    },
+    {
+        name: 'TyadminBuiltin',
+        icon: 'VideoCamera',
+        path: '/xadmin/sys',
+        routes:
+        [
+            {
+                name: 'TyAdminLog',
+                icon: 'smile',
+                path: '/xadmin/sys/ty_admin_sys_log',
+                component: './TyAdminBuiltIn/TyAdminSysLogList'
+            },
+            {
+                name: 'TyAdminVerify',
+                icon: 'smile',
+                path: '/xadmin/sys/ty_admin_email_verify_record',
+                component: './TyAdminBuiltIn/TyAdminEmailVerifyRecordList'
+            }
+        ]
+    },
+    {
+        name: 'passwordModify',
+        path: '/xadmin/account/change_password',
+        hideInMenu: true,
+        icon: 'dashboard',
+        component: './TyAdminBuiltIn/ChangePassword',
+    },
+    {
+        component: './404',
+    },
+]
