@@ -48,7 +48,7 @@ const UserLayout = props => {
           </div>
           {children}
         </div>
-        <DefaultFooter
+        {/* <DefaultFooter
           copyright={`${new Date().getFullYear()} TyAdmin By mtianyan`}
           links={[
             {
@@ -70,7 +70,7 @@ const UserLayout = props => {
               blankTarget: true,
             },
           ]}
-        />
+        /> */}
       </div>
     </HelmetProvider>
   );

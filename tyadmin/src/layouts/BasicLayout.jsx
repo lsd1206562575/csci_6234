@@ -42,27 +42,27 @@ const menuDataRender = menuList =>
 
 const defaultFooterDom = (
   <DefaultFooter
-    copyright={`${new Date().getFullYear()} TyAdmin By mtianyan`}
-    links={[
-      {
-        key: 'TyAdmin',
-        title: 'TyAdmin',
-        href: 'https://pro.ant.design',
-        blankTarget: true,
-      },
-      {
-        key: 'github',
-        title: <GithubOutlined />,
-        href: 'https://github.com/mtianyan',
-        blankTarget: true,
-      },
-      {
-        key: 'Ant Design',
-        title: 'Ant Design Pro V4',
-        href: 'https://ant.design',
-        blankTarget: true,
-      },
-    ]}
+    // copyright={`${new Date().getFullYear()} TyAdmin By mtianyan`}
+    // links={[
+    //   {
+    //     key: 'TyAdmin',
+    //     title: 'TyAdmin',
+    //     href: 'https://pro.ant.design',
+    //     blankTarget: true,
+    //   },
+    //   {
+    //     key: 'github',
+    //     title: <GithubOutlined />,
+    //     href: 'https://github.com/mtianyan',
+    //     blankTarget: true,
+    //   },
+    //   {
+    //     key: 'Ant Design',
+    //     title: 'Ant Design Pro V4',
+    //     href: 'https://ant.design',
+    //     blankTarget: true,
+    //   },
+    // ]}
   />
 );
 
