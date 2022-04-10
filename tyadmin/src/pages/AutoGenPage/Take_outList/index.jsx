@@ -201,7 +201,7 @@ const TableList = () => {
         scroll={{ x: '100%' }}
         columnsStateMap={columnsStateMap}
         onColumnsStateChange={(map) => setColumnsStateMap(map)}
-        headerTitle="Take out food"
+        headerTitle="Take out food表格"
         actionRef={actionRef}
         rowKey="id"
         toolBarRender={(action, { selectedRows }) => [
@@ -211,7 +211,7 @@ const TableList = () => {
           <Button type="primary" onClick={() => exportExcelAll(paramState, queryTake_out, table_columns, 'Take out food-All')}>
             <ExportOutlined /> 导出全部
           </Button>,
-          <Input.Search style={{ marginRight: 20 }} placeholder="Search Take out food" onSearch={value => {
+          <Input.Search style={{ marginRight: 20 }} placeholder="搜索Take out food" onSearch={value => {
             setParamState({
               search: value,
             });

@@ -203,7 +203,10 @@ const TableList = () => {
         rowKey="id"
         toolBarRender={(action, { selectedRows }) => [
           <Button type="primary" onClick={() => handleModalVisible(true)}>
-            <PlusOutlined /> New
+            <PlusOutlined /> ads
+          </Button>,
+          <Button type="primary" onClick={() => handleModalVisible(true)}>
+            <PlusOutlined /> 朱杰
           </Button>,
           <Button type="primary" onClick={() => exportExcelAll(paramState, queryMedicine, table_columns, 'Medicine-All')}>
             <ExportOutlined /> Export all

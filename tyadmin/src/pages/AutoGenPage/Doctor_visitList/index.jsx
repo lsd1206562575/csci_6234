@@ -211,7 +211,7 @@ const TableList = () => {
           <Button type="primary" onClick={() => exportExcelAll(paramState, queryDoctor_visit, table_columns, 'Doctor visit-All')}>
             <ExportOutlined /> 导出全部
           </Button>,
-          <Input.Search style={{ marginRight: 20 }} placeholder="Doctor visit" onSearch={value => {
+          <Input.Search style={{ marginRight: 20 }} placeholder="搜索Doctor visit" onSearch={value => {
             setParamState({
               search: value,
             });

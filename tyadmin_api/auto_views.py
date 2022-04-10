@@ -3,11 +3,11 @@ from rest_framework import viewsets
 from tyadmin_api.custom import XadminViewSet
 from django.contrib.auth.models import Permission, Group
 from django.contrib.contenttypes.models import ContentType
-from demo.models import Symptom, Medicine, Doctor_visit, Trip, News_info, Take_out, DemoForeignKey, Tags, Category, RichTextDemo, DemoModelRequire, DemoModel, DemoDefaultModel, UserProfile
+from demo.models import Symptom, Medicine, Doctor_visit, Trip, News_info, Take_out, UserProfile
 
-from tyadmin_api.auto_serializers import PermissionListSerializer, GroupListSerializer, ContentTypeListSerializer, SymptomListSerializer, MedicineListSerializer, Doctor_visitListSerializer, TripListSerializer, News_infoListSerializer, Take_outListSerializer, DemoForeignKeyListSerializer, TagsListSerializer, CategoryListSerializer, RichTextDemoListSerializer, DemoModelRequireListSerializer, DemoModelListSerializer, DemoDefaultModelListSerializer, UserProfileListSerializer
-from tyadmin_api.auto_serializers import PermissionCreateUpdateSerializer, GroupCreateUpdateSerializer, ContentTypeCreateUpdateSerializer, SymptomCreateUpdateSerializer, MedicineCreateUpdateSerializer, Doctor_visitCreateUpdateSerializer, TripCreateUpdateSerializer, News_infoCreateUpdateSerializer, Take_outCreateUpdateSerializer, DemoForeignKeyCreateUpdateSerializer, TagsCreateUpdateSerializer, CategoryCreateUpdateSerializer, RichTextDemoCreateUpdateSerializer, DemoModelRequireCreateUpdateSerializer, DemoModelCreateUpdateSerializer, DemoDefaultModelCreateUpdateSerializer, UserProfileCreateUpdateSerializer
-from tyadmin_api.auto_filters import PermissionFilter, GroupFilter, ContentTypeFilter, SymptomFilter, MedicineFilter, Doctor_visitFilter, TripFilter, News_infoFilter, Take_outFilter, DemoForeignKeyFilter, TagsFilter, CategoryFilter, RichTextDemoFilter, DemoModelRequireFilter, DemoModelFilter, DemoDefaultModelFilter, UserProfileFilter
+from tyadmin_api.auto_serializers import PermissionListSerializer, GroupListSerializer, ContentTypeListSerializer, SymptomListSerializer, MedicineListSerializer, Doctor_visitListSerializer, TripListSerializer, News_infoListSerializer, Take_outListSerializer, UserProfileListSerializer
+from tyadmin_api.auto_serializers import PermissionCreateUpdateSerializer, GroupCreateUpdateSerializer, ContentTypeCreateUpdateSerializer, SymptomCreateUpdateSerializer, MedicineCreateUpdateSerializer, Doctor_visitCreateUpdateSerializer, TripCreateUpdateSerializer, News_infoCreateUpdateSerializer, Take_outCreateUpdateSerializer, UserProfileCreateUpdateSerializer
+from tyadmin_api.auto_filters import PermissionFilter, GroupFilter, ContentTypeFilter, SymptomFilter, MedicineFilter, Doctor_visitFilter, TripFilter, News_infoFilter, Take_outFilter, UserProfileFilter
 
     
 class PermissionViewSet(XadminViewSet):
@@ -125,97 +125,6 @@ class Take_outViewSet(XadminViewSet):
             return Take_outListSerializer
         else:
             return Take_outCreateUpdateSerializer
-
-    
-class DemoForeignKeyViewSet(XadminViewSet):
-    serializer_class = DemoForeignKeyListSerializer
-    queryset = DemoForeignKey.objects.all().order_by('-pk')
-    filter_class = DemoForeignKeyFilter
-    search_fields = ["name"]
-
-    def get_serializer_class(self):
-        if self.action == "list":
-            return DemoForeignKeyListSerializer
-        else:
-            return DemoForeignKeyCreateUpdateSerializer
-
-    
-class TagsViewSet(XadminViewSet):
-    serializer_class = TagsListSerializer
-    queryset = Tags.objects.all().order_by('-pk')
-    filter_class = TagsFilter
-    search_fields = ["code","name"]
-
-    def get_serializer_class(self):
-        if self.action == "list":
-            return TagsListSerializer
-        else:
-            return TagsCreateUpdateSerializer
-
-    
-class CategoryViewSet(XadminViewSet):
-    serializer_class = CategoryListSerializer
-    queryset = Category.objects.all().order_by('-pk')
-    filter_class = CategoryFilter
-    search_fields = ["code","name"]
-
-    def get_serializer_class(self):
-        if self.action == "list":
-            return CategoryListSerializer
-        else:
-            return CategoryCreateUpdateSerializer
-
-    
-class RichTextDemoViewSet(XadminViewSet):
-    serializer_class = RichTextDemoListSerializer
-    queryset = RichTextDemo.objects.all().order_by('-pk')
-    filter_class = RichTextDemoFilter
-    search_fields = ["name"]
-
-    def get_serializer_class(self):
-        if self.action == "list":
-            return RichTextDemoListSerializer
-        else:
-            return RichTextDemoCreateUpdateSerializer
-
-    
-class DemoModelRequireViewSet(XadminViewSet):
-    serializer_class = DemoModelRequireListSerializer
-    queryset = DemoModelRequire.objects.all().order_by('-pk')
-    filter_class = DemoModelRequireFilter
-    search_fields = ["name"]
-
-    def get_serializer_class(self):
-        if self.action == "list":
-            return DemoModelRequireListSerializer
-        else:
-            return DemoModelRequireCreateUpdateSerializer
-
-    
-class DemoModelViewSet(XadminViewSet):
-    serializer_class = DemoModelListSerializer
-    queryset = DemoModel.objects.all().order_by('-pk')
-    filter_class = DemoModelFilter
-    search_fields = ["char_field"]
-
-    def get_serializer_class(self):
-        if self.action == "list":
-            return DemoModelListSerializer
-        else:
-            return DemoModelCreateUpdateSerializer
-
-    
-class DemoDefaultModelViewSet(XadminViewSet):
-    serializer_class = DemoDefaultModelListSerializer
-    queryset = DemoDefaultModel.objects.all().order_by('-pk')
-    filter_class = DemoDefaultModelFilter
-    search_fields = ["default_char_field"]
-
-    def get_serializer_class(self):
-        if self.action == "list":
-            return DemoDefaultModelListSerializer
-        else:
-            return DemoDefaultModelCreateUpdateSerializer
 
     
 class UserProfileViewSet(XadminViewSet):

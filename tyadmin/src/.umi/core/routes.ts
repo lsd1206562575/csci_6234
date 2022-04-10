@@ -100,48 +100,6 @@ const routes = [
                 "exact": true
               },
               {
-                "name": "全部字段非必填",
-                "path": "/xadmin/demo/demo_foreign_key",
-                "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__AutoGenPage__DemoForeignKeyList' */'D:/code/pycharm/csci_6234/tyadmin/src/pages/AutoGenPage/DemoForeignKeyList'), loading: require('@/components/PageLoading/index').default}),
-                "exact": true
-              },
-              {
-                "name": "标签[被多对多关联]",
-                "path": "/xadmin/demo/tags",
-                "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__AutoGenPage__TagsList' */'D:/code/pycharm/csci_6234/tyadmin/src/pages/AutoGenPage/TagsList'), loading: require('@/components/PageLoading/index').default}),
-                "exact": true
-              },
-              {
-                "name": "分类[被外键关联]",
-                "path": "/xadmin/demo/category",
-                "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__AutoGenPage__CategoryList' */'D:/code/pycharm/csci_6234/tyadmin/src/pages/AutoGenPage/CategoryList'), loading: require('@/components/PageLoading/index').default}),
-                "exact": true
-              },
-              {
-                "name": "富文本示例[关联外键，多对多标签]",
-                "path": "/xadmin/demo/rich_text_demo",
-                "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__AutoGenPage__RichTextDemoList' */'D:/code/pycharm/csci_6234/tyadmin/src/pages/AutoGenPage/RichTextDemoList'), loading: require('@/components/PageLoading/index').default}),
-                "exact": true
-              },
-              {
-                "name": "下拉选择示例(choices)",
-                "path": "/xadmin/demo/demo_model_require",
-                "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__AutoGenPage__DemoModelRequireList' */'D:/code/pycharm/csci_6234/tyadmin/src/pages/AutoGenPage/DemoModelRequireList'), loading: require('@/components/PageLoading/index').default}),
-                "exact": true
-              },
-              {
-                "name": "全部字段类型-必填",
-                "path": "/xadmin/demo/demo_model",
-                "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__AutoGenPage__DemoModelList' */'D:/code/pycharm/csci_6234/tyadmin/src/pages/AutoGenPage/DemoModelList'), loading: require('@/components/PageLoading/index').default}),
-                "exact": true
-              },
-              {
-                "name": "全部字段类型-提供默认值",
-                "path": "/xadmin/demo/demo_default_model",
-                "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__AutoGenPage__DemoDefaultModelList' */'D:/code/pycharm/csci_6234/tyadmin/src/pages/AutoGenPage/DemoDefaultModelList'), loading: require('@/components/PageLoading/index').default}),
-                "exact": true
-              },
-              {
                 "name": "UserProfile",
                 "path": "/xadmin/demo/user_profile",
                 "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__AutoGenPage__UserProfileList' */'D:/code/pycharm/csci_6234/tyadmin/src/pages/AutoGenPage/UserProfileList'), loading: require('@/components/PageLoading/index').default}),
