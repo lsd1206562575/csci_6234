@@ -10,7 +10,7 @@ const proSettings = {
   menu: {
     locale: true,
   },
-  title: 'TyAdmin',
+  title: 'GWU',
   pwa: false,
   iconfontUrl: '',
 };
