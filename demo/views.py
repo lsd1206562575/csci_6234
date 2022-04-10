@@ -1,5 +1,7 @@
 import sqlite3
 
+from django.http import HttpResponse
+
 def dataLoad(sql):
     cx = sqlite3.connect("../db.sqlite3")
     cursor = cx.cursor()
@@ -9,7 +11,7 @@ def dataLoad(sql):
     cursor.close()
     return len(results)
 
-def calculateCovidRsik():
+def calculateCovidRsik(request):
     doc_Sql = """select * from demo_doctor_visit"""
     doc = dataLoad(doc_Sql)
     medicine_Sql = """select * from demo_medicine"""
@@ -33,6 +35,6 @@ def calculateCovidRsik():
     w2 = 0.03
     w3 = 0.04
     risk = w1 * (doc + trip + takeOut) + w2 * symptom + w3 * medicine
-    return risk
 
-print(calculateCovidRsik())
+    return HttpResponse(risk)
+

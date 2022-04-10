@@ -1,6 +1,13 @@
 import request from 'umi-request';
 
 import { buildFileFormData } from '@/utils/utils'
+
+// export async function acquireProbability() {
+//   return request('/api/xadmin/v1/medicine', {
+//     method: 'POST',
+//     params,
+//   });
+// }
 export async function queryMedicine(params) {
   return request('/api/xadmin/v1/medicine', {
     params,
