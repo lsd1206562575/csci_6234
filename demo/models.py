@@ -31,7 +31,6 @@ class Medicine(models.Model):
     def __str__(self):
         return str(self.medicine)
 
-
 class Doctor_visit(models.Model):
     doctor_visit = models.CharField(max_length=20, verbose_name="Event")
     time = models.DateField(verbose_name="Appointment date")

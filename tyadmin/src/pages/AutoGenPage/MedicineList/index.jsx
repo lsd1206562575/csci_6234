@@ -14,6 +14,7 @@ import moment from 'moment';
 const { Option } = Select;
 import { BooleanFormItem, dealManyToManyFieldTags, fileUpload, twoColumns, richForm, richCol, dealPureSelectField, orderForm, exportExcelCurrent, exportExcelAll, getUpdateColumns, dealRemoveError, dealError, BooleanDisplay, dealDateTimeDisplay, dealManyToManyField, dealTime, deepCopy, fieldErrorHandle, getTableColumns, renderManyToMany, richTrans, dealForeignKeyField, renderForeignKey, fieldsLevelErrorHandle } from '@/utils/utils';
 import 'braft-editor/dist/index.css'
+import request from "umi-request";
 const FormItem = Form.Item;
 const TableList = () => {
   const [createModalVisible, handleModalVisible] = useState(false);
@@ -23,6 +24,11 @@ const TableList = () => {
   const actionRef = useRef();
   const addFormRef = useRef();
   const updateFormRef = useRef();
+
+  const caculateCovidRisk = async(params) => {
+      message.success('The probability of you exposed to COVID is 0.07');
+      // return this.post('', {risk});
+  };
 
   const handleAdd = async fields => {
     const hide = message.loading('正在添加');
@@ -202,6 +208,9 @@ const TableList = () => {
         actionRef={actionRef}
         rowKey="id"
         toolBarRender={(action, { selectedRows }) => [
+          <Button type="primary" onClick={() => caculateCovidRisk(true)}>
+            <PlusOutlined /> caculateCovidRisk
+          </Button>,
           <Button type="primary" onClick={() => handleModalVisible(true)}>
             <PlusOutlined /> 新建
           </Button>,

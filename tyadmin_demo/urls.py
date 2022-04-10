@@ -18,7 +18,6 @@ from django.views.static import serve
 from django.urls import path, include, re_path
 from tyadmin_api.views import AdminIndexView
 
-
 urlpatterns = [
     re_path('media/(?P<path>.*)', serve, {"document_root": settings.MEDIA_ROOT}),
     re_path('^xadmin/.*', AdminIndexView.as_view()),
