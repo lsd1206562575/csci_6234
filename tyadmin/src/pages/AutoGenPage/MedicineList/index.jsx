@@ -212,7 +212,7 @@ const TableList = () => {
             <PlusOutlined /> caculateCovidRisk
           </Button>,
           <Button type="primary" onClick={() => handleModalVisible(true)}>
-            <PlusOutlined /> 新建
+            <PlusOutlined /> New
           </Button>,
           <Button type="primary" onClick={() => exportExcelAll(paramState, queryMedicine, table_columns, 'Medicine-All')}>
             <ExportOutlined /> Export all
