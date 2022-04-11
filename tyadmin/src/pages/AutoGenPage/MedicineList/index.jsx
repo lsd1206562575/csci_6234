@@ -31,44 +31,44 @@ const TableList = () => {
   };
 
   const handleAdd = async fields => {
-    const hide = message.loading('正在添加');
+    const hide = message.loading('Adding');
 
     try {
       await addMedicine({ ...fields });
       hide();
-      message.success('添加成功');
+      message.success('Add successfully');
       return true;
     } catch (error) {
-      return dealError(error, addFormRef, hide, "添加");
+      return dealError(error, addFormRef, hide, "Add");
     }
   };
 
   const handleUpdate = async (value, current_id) => {
-    const hide = message.loading('正在修改');
+    const hide = message.loading('Modifying');
 
     try {
       await updateMedicine(value, current_id);
       hide();
-      message.success('修改成功');
+      message.success('Modify Successfully');
       return true;
     } catch (error) {
-      return dealError(error, updateFormRef, hide, "修改");
+      return dealError(error, updateFormRef, hide, "Modify");
     }
   };
 
   const handleRemove = async selectedRows => {
-    const hide = message.loading('正在删除');
+    const hide = message.loading('Deleting');
     if (!selectedRows) return true;
 
     try {
       const ids = selectedRows.map(row => row.id).join(',');
       await removeMedicine(ids);
       hide();
-      message.success('删除成功');
+      message.success('Delete Successfully');
       return true;
     } catch (error) {
       hide()
-      return dealRemoveError(error, "删除");
+      return dealRemoveError(error, "Delete");
     }
   };
  
@@ -97,7 +97,7 @@ const TableList = () => {
                              rules: [
                                      {
                       required: true,
-                      message: 'medicine为必填项',
+                      message: 'medicine is required',
                      },
                              ],
                              
@@ -112,7 +112,7 @@ const TableList = () => {
                              rules: [
                                      {
                       required: true,
-                      message: 'time为必填项',
+                      message: 'time is required',
                      },
                              ],
                              
@@ -131,7 +131,7 @@ const TableList = () => {
                              
                         },
                           {
-                              title: '操作',
+                              title: 'Operation',
                               dataIndex: 'option',
                               valueType: 'option',
                                     fixed: 'right',
@@ -139,23 +139,23 @@ const TableList = () => {
                               render: (text, record) => (
                                 <>
 
-                                  <EditOutlined title="编辑" className="icon" onClick={async () => {
+                                  <EditOutlined title="Edit" className="icon" onClick={async () => {
                                    record.time = record.time === null ? record.time : moment(record.time);
                                     handleUpdateModalVisible(true);
                                     setUpdateFormValues(record);
                                   }} />
                                   <Divider type="vertical" />
                                   <Popconfirm
-                                    title="您确定要删除Medicine吗？"
+                                    title="Are you sure to delete Medicine？"
                                     placement="topRight"
                                     onConfirm={() => {
                                       handleRemove([record])
                                       actionRef.current.reloadAndRest();
                                     }}
-                                    okText="确定"
-                                    cancelText="取消"
+                                    okText="Confirm"
+                                    cancelText="Cancel"
                                   >
-                                    <DeleteOutlined title="删除" className="icon" />
+                                    <DeleteOutlined title="Delete" className="icon" />
                                   </Popconfirm>
                                 </>
                               ),
@@ -204,7 +204,7 @@ const TableList = () => {
         scroll={{ x: '100%' }}
         columnsStateMap={columnsStateMap}
         onColumnsStateChange={(map) => setColumnsStateMap(map)}
-        headerTitle="Medicine表格"
+        headerTitle="Medicine Form"
         actionRef={actionRef}
         rowKey="id"
         toolBarRender={(action, { selectedRows }) => [
@@ -215,9 +215,9 @@ const TableList = () => {
             <PlusOutlined /> 新建
           </Button>,
           <Button type="primary" onClick={() => exportExcelAll(paramState, queryMedicine, table_columns, 'Medicine-All')}>
-            <ExportOutlined /> 导出全部
+            <ExportOutlined /> Export all
           </Button>,
-          <Input.Search style={{ marginRight: 20 }} placeholder="搜索Medicine" onSearch={value => {
+          <Input.Search style={{ marginRight: 20 }} placeholder="Search Medicine" onSearch={value => {
             setParamState({
               search: value,
             });
@@ -238,20 +238,20 @@ const TableList = () => {
                   }}
                   selectedKeys={[]}
                 >
-                  <Menu.Item key="remove">批量删除</Menu.Item>
-                  <Menu.Item key="export_current">导出已选</Menu.Item>
+                  <Menu.Item key="remove">Delete Selected</Menu.Item>
+                  <Menu.Item key="export_current">Export selected</Menu.Item>
                 </Menu>
               }
             >
               <Button>
-                批量操作 <DownOutlined />
+                Operate Selected <DownOutlined />
               </Button>
             </Dropdown>
           ),
         ]}
         tableAlertRender={({ selectedRowKeys, selectedRows }) => (
           selectedRowKeys.length > 0 ? <div>
-            已选择{' '}
+            Selected{' '}
             <a
               style={{
                 fontWeight: 600,
@@ -259,7 +259,7 @@ const TableList = () => {
             >
               {selectedRowKeys.length}
             </a>{' '}
-            项&nbsp;&nbsp;
+            Items&nbsp;&nbsp;
           </div> : false
 
         )}

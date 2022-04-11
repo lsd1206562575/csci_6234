@@ -606,7 +606,7 @@ export const dealPureSelectField = (item, value, onChange, ChoiceDict) => {
   return <Select
     allowClear
     showSearch
-    placeholder={'请选择' + item.title}
+    placeholder={'Please choose' + item.title}
     value={value}
     onChange={onChange}
     filterOption={(input, option) =>
@@ -630,7 +630,7 @@ export const dealForeignKeyField = (item, value, onChange, ForeignKeyList) => {
   return <Select
     allowClear
     showSearch
-    placeholder={'请选择' + item.title}
+    placeholder={'Please choose' + item.title}
     value={value}
     onChange={onChange}
     filterOption={(input, option) =>
@@ -690,7 +690,7 @@ export const dealManyToManyField = (item, value, onChange, type, ManyToManyList)
       filterOption={(input, option) =>
         option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
       }
-      mode="multiple" placeholder={'请选择' + item.title} onChange={onChange}>
+      mode="multiple" placeholder={'Please choose' + item.title} onChange={onChange}>
       {children}
     </Select>
   );
@@ -718,7 +718,7 @@ export const dealManyToManyFieldTags = (item, value, onChange, type, ManyToManyL
     showSearch
     allowClear
     mode="multiple"
-    placeholder={'请选择' + item.title}
+    placeholder={'Please choose' + item.title}
     value={value}
     onChange={onChange}
     filterOption={(input, option) =>

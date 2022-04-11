@@ -11,7 +11,7 @@ import { Result, Button } from 'antd';
 import Authorized from '@/utils/Authorized';
 import RightContent from '@/components/GlobalHeader/RightContent';
 import { getAuthorityFromRouter } from '@/utils/utils';
-import logo from '../assets/logo.svg';
+import logo from '../assets/GWUlogo.svg';
 import {queryMenu} from '@/services/user';
 import DynamicIcon from '@/components/DynamicIcon';
 
@@ -42,27 +42,27 @@ const menuDataRender = menuList =>
 
 const defaultFooterDom = (
   <DefaultFooter
-    copyright={`${new Date().getFullYear()} TyAdmin By mtianyan`}
-    links={[
-      {
-        key: 'TyAdmin',
-        title: 'TyAdmin',
-        href: 'https://pro.ant.design',
-        blankTarget: true,
-      },
-      {
-        key: 'github',
-        title: <GithubOutlined />,
-        href: 'https://github.com/mtianyan',
-        blankTarget: true,
-      },
-      {
-        key: 'Ant Design',
-        title: 'Ant Design Pro V4',
-        href: 'https://ant.design',
-        blankTarget: true,
-      },
-    ]}
+    // copyright={`${new Date().getFullYear()} TyAdmin By mtianyan`}
+    // links={[
+    //   {
+    //     key: 'TyAdmin',
+    //     title: 'TyAdmin',
+    //     href: 'https://pro.ant.design',
+    //     blankTarget: true,
+    //   },
+    //   {
+    //     key: 'github',
+    //     title: <GithubOutlined />,
+    //     href: 'https://github.com/mtianyan',
+    //     blankTarget: true,
+    //   },
+    //   {
+    //     key: 'Ant Design',
+    //     title: 'Ant Design Pro V4',
+    //     href: 'https://ant.design',
+    //     blankTarget: true,
+    //   },
+    // ]}
   />
 );
 
@@ -147,7 +147,7 @@ const BasicLayout = props => {
           <span>{route.breadcrumbName}</span>
         );
       }}
-      footerRender={() => defaultFooterDom}
+      //footerRender={() => defaultFooterDom}
       // menuDataRender={menuDataRender}
       menuDataRender={() =>menuData}
       rightContentRender={() => <RightContent />}

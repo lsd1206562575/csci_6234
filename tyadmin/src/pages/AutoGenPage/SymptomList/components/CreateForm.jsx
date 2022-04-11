@@ -6,7 +6,7 @@ const CreateForm = props => {
   return (
     <Modal
       destroyOnClose
-      title="新建Symptom"
+      title="Create new Symptom"
       visible={modalVisible}
       width={800}
       onCancel={() => onCancel()}

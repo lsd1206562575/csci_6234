@@ -1,4 +1,5 @@
 // https://umijs.org/config/
+// test config for github commit
 import { defineConfig } from 'umi';
 import defaultSettings from './defaultSettings';
 import proxy from './proxy';
