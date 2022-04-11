@@ -49,12 +49,12 @@ class AvatarDropdown extends React.Component {
         {menu && <Menu.Divider />}
           <Menu.Item key="change_password">
             <SettingOutlined />
-            修改密码
+              Modify Password
           </Menu.Item>
                   <Menu.Divider />
         <Menu.Item key="logout">
           <LogoutOutlined />
-          退出登录
+          Log Out
         </Menu.Item>
       </Menu>
     );

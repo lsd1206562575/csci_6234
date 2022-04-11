@@ -16,7 +16,7 @@ const ChangePassPage = () => {
   const handleChange = (values) => {
     changePassword(values).then(
       (r) => {
-        message.success('密码修改成功,请重新登录!');
+        message.success('Password change successfully. Please re-login!');
         if (window.location.pathname !== '/xadmin/login') {
           history.replace({
             pathname: '/xadmin/login',
@@ -41,7 +41,7 @@ const ChangePassPage = () => {
   };
   return (
     <PageHeaderWrapper>
-      <Card title={'修改当前账号密码'}>
+      <Card title={'Modify current account password'}>
         <Form
           form={form}
           onFinish={handleChange}
@@ -53,16 +53,16 @@ const ChangePassPage = () => {
             wrapperCol={{
               span: 10,
             }}
-            label="旧密码"
+            label="Old password"
             name="old_password"
             rules={[
               {
                 required: true,
-                message: '请输入旧密码！',
+                message: 'Enter the old password',
               },
             ]}
           >
-            <Input.Password placeholder="请输入旧密码" type="password" />
+            <Input.Password placeholder="Please enter the old password" type="password" />
           </FormItem>
           <FormItem
             labelCol={{
@@ -71,16 +71,16 @@ const ChangePassPage = () => {
             wrapperCol={{
               span: 10,
             }}
-            label="新密码"
+            label="New password"
             name="new_password"
             rules={[
               {
                 required: true,
-                message: '请输入新密码！',
+                message: 'Please Enter the new Password',
               },
             ]}
           >
-            <Input.Password placeholder="请输入新密码" type="password" />
+            <Input.Password placeholder="Please Enter the new Password" type="password" />
           </FormItem>
           <FormItem
             labelCol={{
@@ -89,28 +89,28 @@ const ChangePassPage = () => {
             wrapperCol={{
               span: 10,
             }}
-            label="重复新密码"
+            label="re-enter the password"
             name="re_password"
             rules={[
               {
                 required: true,
-                message: '请再次输入新密码',
+                message: 'Please Enter the new Password again',
               },
               ({ getFieldValue }) => ({
                 validator(rule, value) {
                   if (!value || getFieldValue('new_password') === value) {
                     return Promise.resolve();
                   }
-                  return Promise.reject('两次密码不匹配');
+                  return Promise.reject('Does not Match');
                 },
               }),
             ]}
           >
-            <Input.Password placeholder="请再次输入新密码" type="password" />
+            <Input.Password placeholder="Please Enter the new Password again" type="password" />
           </FormItem>
           <Form.Item {...tailLayout}>
             <Button type="primary" htmlType="submit">
-              修改
+              Modify
             </Button>
           </Form.Item>
         </Form>
