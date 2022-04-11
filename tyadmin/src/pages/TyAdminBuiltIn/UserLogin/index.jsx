@@ -43,7 +43,7 @@ const Login = props => {
   };
   const onGetEmail = (email) => {
     getEmailCaptcha(email).then((response) => {
-      message.success('发送成功，请前往邮箱查看');
+      message.success('Send successfully! Please check.');
     }).catch((err) => {
       fieldErrorHandle(err, loginEmailFormRef);
     });
@@ -78,20 +78,20 @@ const Login = props => {
     <div className={styles.main}>
 
       <Tabs defaultActiveKey="account">
-        <TabPane key="account" tab="账户密码登录">
+        <TabPane key="account" tab="Account Login">
           <Form ref={loginAccountFormRef} onFinish={handleAccountSubmit}>
             <Form.Item
               style={{ marginBottom: 24 }}
               name="userName"
-              placeholder="用户名"
+              placeholder="username"
               rules={[
                 {
                   required: true,
-                  message: '请输入用户名!',
+                  message: 'Please enter username!',
                 },
               ]}
             >
-              <Input size="large" placeholder='请输入用户名' prefix={<UserOutlined
+              <Input size="large" placeholder='Enter username' prefix={<UserOutlined
                 style={{
                   color: '#1890ff',
                 }}
@@ -101,29 +101,29 @@ const Login = props => {
             <Form.Item
               style={{ marginBottom: 24 }}
               name="password"
-              placeholder="密码"
+              placeholder="password"
               rules={[
                 {
                   required: true,
-                  message: '请输入密码！',
+                  message: 'Please enter password！',
                 },
               ]}
             >
 
-              <Input.Password size="large" placeholder='请输入密码'
+              <Input.Password size="large" placeholder='Enter password'
                 prefix={<LockTwoTone className={styles.prefixIcon} />} />
             </Form.Item>
             <Row gutter={8}>
               <Col span={16}>
                 <Form.Item name="pic_captcha"
-                  placeholder="验证码"
+                  placeholder="verification code"
                   rules={[
                     {
                       required: true,
-                      message: '请输入验证码！',
+                      message: 'Please enter verification code！',
                     },
                   ]}>
-                  <Input size="large" placeholder='请输入验证码'
+                  <Input size="large" placeholder='Enter verification code'
                     prefix={<IconFont type="iconyanzhengma" className={styles.prefixIcon} />} />
                 </Form.Item>
               </Col>
@@ -142,38 +142,38 @@ const Login = props => {
             </Form.Item>
           </Form>
         </TabPane>
-        <TabPane key="email" tab="邮箱验证码登录">
+        <TabPane key="email" tab="Email Login">
           <Form ref={loginEmailFormRef} onFinish={handleEmailSubmit}>
             <Form.Item
               name="email"
-              placeholder="邮箱"
+              placeholder="email"
               rules={[
                 {
                   required: true,
-                  message: '请输入邮箱地址！',
+                  message: 'Please enter email address！',
                 },
                 {
                   pattern: /^([A-Za-z0-9_\-\.\u4e00-\u9fa5])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,8})$/,
-                  message: '邮箱地址格式错误！',
+                  message: 'Wrong email address form！',
                 },
               ]}
             >
-              <Input size="large" placeholder='请输入邮箱' prefix={<MailTwoTone className={styles.prefixIcon} />} />
+              <Input size="large" placeholder='Enter email address' prefix={<MailTwoTone className={styles.prefixIcon} />} />
             </Form.Item>
             <Row gutter={8}>
               <Col span={16}>
                 <Form.Item name="captcha"
-                  placeholder="验证码"
+                  placeholder="verification code"
                   countDown={120}
                   getCaptchaButtonText=""
                   getCaptchaSecondText="秒"
                   rules={[
                     {
                       required: true,
-                      message: '请输入邮箱验证码！',
+                      message: 'Please enter verification code！',
                     },
                   ]}>
-                  <Input size="large" placeholder='请输入邮箱验证码'
+                  <Input size="large" placeholder='Enter verification code'
                     prefix={<IconFont type="iconyanzhengma" className={styles.prefixIcon} />} />
                 </Form.Item>
               </Col>
@@ -185,11 +185,11 @@ const Login = props => {
                   onClick={() => {
                     const value = loginEmailFormRef.current.getFieldValue('email');
                     if (!value) {
-                      message.error('请先输入邮箱，再发送');
+                      message.error('Please enter email address first!');
                     } else {
                       const value_error = loginEmailFormRef.current.getFieldError('email');
                       if (value_error.length !== 0) {
-                        message.error('请先修正邮箱，再发送');
+                        message.error('Wrong email address! Enter again.');
                       } else {
                         onGetEmail(value);
                       }
@@ -197,7 +197,7 @@ const Login = props => {
 
                   }}
                 >
-                  {timing ? `${count} 秒` : '获取验证码'}
+                  {timing ? `${count} 秒` : 'Send email'}
                 </Button>
               </Col>
             </Row>
