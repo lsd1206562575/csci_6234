@@ -4354,6 +4354,13 @@
   "resolved" "https://registry.npm.taobao.org/binary-mirror-config/download/binary-mirror-config-1.20.3.tgz?cache=0&sync_timestamp=1595833836049&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbinary-mirror-config%2Fdownload%2Fbinary-mirror-config-1.20.3.tgz"
   "version" "1.20.3"
 
+"bindings@^1.5.0":
+  "integrity" "sha1-EDU8npRTNLwFEabZCzj7x8nFBN8="
+  "resolved" "https://registry.npm.taobao.org/bindings/download/bindings-1.5.0.tgz"
+  "version" "1.5.0"
+  dependencies:
+    "file-uri-to-path" "1.0.0"
+
 "bizcharts-plugin-slider@^3.0.1":
   "integrity" "sha1-Rvtofv7jmcsrl4LuLleHLOwdE2o="
   "resolved" "https://registry.npm.taobao.org/bizcharts-plugin-slider/download/bizcharts-plugin-slider-3.0.1.tgz"
@@ -8336,6 +8343,19 @@
   "resolved" "https://registry.npm.taobao.org/fs.realpath/download/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
 
+"fsevents@^1.2.7":
+  "integrity" "sha1-8yXLBFVZJCi88Rs4M3DvcOO/zDg="
+  "resolved" "https://registry.npm.taobao.org/fsevents/download/fsevents-1.2.13.tgz?cache=0&sync_timestamp=1588787369955&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffsevents%2Fdownload%2Ffsevents-1.2.13.tgz"
+  "version" "1.2.13"
+  dependencies:
+    "bindings" "^1.5.0"
+    "nan" "^2.12.1"
+
+"fsevents@^2.1.2", "fsevents@~2.1.2":
+  "integrity" "sha1-+3OHA66NL5/pAMM4Nt3r7ouX8j4="
+  "resolved" "https://registry.npm.taobao.org/fsevents/download/fsevents-2.1.3.tgz?cache=0&sync_timestamp=1588787369955&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffsevents%2Fdownload%2Ffsevents-2.1.3.tgz"
+  "version" "2.1.3"
+
 "function-bind@^1.1.1", "function-bind@~1.1.1":
   "integrity" "sha1-pWiZ0+o8m6uHS7l3O3xe3pL0iV0="
   "resolved" "https://registry.npm.taobao.org/function-bind/download/function-bind-1.1.1.tgz"
@@ -11829,7 +11849,7 @@
     "object-assign" "^4.0.1"
     "thenify-all" "^1.0.0"
 
-"nan@^2.14.0":
+"nan@^2.12.1":
   "integrity" "sha1-174036MQW5FJTDFHCJMV7/iHSwE="
   "resolved" "https://registry.npm.taobao.org/nan/download/nan-2.14.1.tgz?cache=0&sync_timestamp=1587497111086&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnan%2Fdownload%2Fnan-2.14.1.tgz"
   "version" "2.14.1"
@@ -11988,13 +12008,6 @@
     "semver" "^6.3.0"
     "shellwords" "^0.1.1"
     "which" "^1.3.1"
-
-"node-pty@^0.10.0-beta3":
-  "integrity" "sha1-5aeV+bU5SDRoA8txusT/wC55CfA="
-  "resolved" "https://registry.npm.taobao.org/node-pty/download/node-pty-0.10.0-beta9.tgz?cache=0&sync_timestamp=1594993758460&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnode-pty%2Fdownload%2Fnode-pty-0.10.0-beta9.tgz"
-  "version" "0.10.0-beta9"
-  dependencies:
-    "nan" "^2.14.0"
 
 "node-releases@^1.1.13", "node-releases@^1.1.58":
   "integrity" "sha1-aUi9/OgobwtdDlqI6DhOlU3+cIQ="

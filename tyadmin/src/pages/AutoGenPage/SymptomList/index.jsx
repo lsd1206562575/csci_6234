@@ -235,14 +235,14 @@ const TableList = () => {
               }
             >
               <Button>
-                Operate Seleted Items <DownOutlined />
+                Operate Selected Items <DownOutlined />
               </Button>
             </Dropdown>
           ),
         ]}
         tableAlertRender={({ selectedRowKeys, selectedRows }) => (
           selectedRowKeys.length > 0 ? <div>
-            Seleted{' '}
+            Selected{' '}
             <a
               style={{
                 fontWeight: 600,

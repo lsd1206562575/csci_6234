@@ -27,51 +27,51 @@ const [updatePasswordForm] = Form.useForm();
   const updateFormRef = useRef();
 
   const handleAdd = async fields => {
-    const hide = message.loading('正在添加');
+    const hide = message.loading('Adding');
 
     try {
       await addUserProfile({ ...fields });
       hide();
-      message.success('添加成功');
+      message.success('Add Successfully');
       return true;
     } catch (error) {
-      return dealError(error, addFormRef, hide, "添加");
+      return dealError(error, addFormRef, hide, "Add");
     }
   };
 
   const handleUpdate = async (value, current_id) => {
-    const hide = message.loading('正在修改');
+    const hide = message.loading('Modifying');
 
     try {
       await updateUserProfile(value, current_id);
       hide();
-      message.success('修改成功');
+      message.success('Modify Successfully');
       return true;
     } catch (error) {
-      return dealError(error, updateFormRef, hide, "修改");
+      return dealError(error, updateFormRef, hide, "Modify");
     }
   };
 
   const handleRemove = async selectedRows => {
-    const hide = message.loading('正在删除');
+    const hide = message.loading('Deleting');
     if (!selectedRows) return true;
 
     try {
       const ids = selectedRows.map(row => row.id).join(',');
       await removeUserProfile(ids);
       hide();
-      message.success('删除成功');
+      message.success('Delete Successfully');
       return true;
     } catch (error) {
       hide()
-      return dealRemoveError(error, "删除");
+      return dealRemoveError(error, "Delete");
     }
   };
  const handlePassWordUpdate = () => {
     if (updatePasswordForm.getFieldValue('password') !== updatePasswordForm.getFieldValue('re_password')) {
       updatePasswordForm.setFields([{
         name: 're_password',
-        errors: ['两次密码不一致'],
+        errors: ['Passwords do not match'],
       }]);
     } else {
       updatePasswordForm.validateFields().then(
@@ -80,7 +80,7 @@ const [updatePasswordForm] = Form.useForm();
             ...value,
             username: updateFormValues["username"],
           }).then(
-            message.success('密码修改成功'),
+            message.success('Password edit successfully'),
             handleUpdatePassWordModalVisible(false),
           );
         },
@@ -116,7 +116,7 @@ const [updatePasswordForm] = Form.useForm();
                              rules: [
                                      {
                       required: true,
-                      message: 'password为必填项',
+                      message: 'password is required',
                      },
                              ],
                              
@@ -162,7 +162,7 @@ const [updatePasswordForm] = Form.useForm();
                              rules: [
                                      {
                       required: true,
-                      message: 'username为必填项',
+                      message: 'username is required',
                      },
                              ],
                              
@@ -279,7 +279,7 @@ const [updatePasswordForm] = Form.useForm();
                              rules: [
                                      {
                       required: true,
-                      message: 'image为必填项',
+                      message: 'image is required',
                      },
                              ],
                              
@@ -334,7 +334,7 @@ renderFormItem: (_, {type, defaultRender, ...rest}, form) => {
                              
                         },
                           {
-                                              title: '操作',
+                                              title: 'Operation',
                                               dataIndex: 'option',
                                               valueType: 'option',
                                                     fixed: 'right',
@@ -342,7 +342,7 @@ renderFormItem: (_, {type, defaultRender, ...rest}, form) => {
                                               render: (text, record) => (
                                                 <>
 
-                                                  <EditOutlined title="编辑" className="icon" onClick={async () => {
+                                                  <EditOutlined title="Edit" className="icon" onClick={async () => {
                                                    record.last_login = record.last_login === null ? record.last_login : moment(record.last_login);record.date_joined = record.date_joined === null ? record.date_joined : moment(record.date_joined);
                                                     handleUpdateModalVisible(true);
                                                     setUpdateFormValues(record);
@@ -354,16 +354,16 @@ renderFormItem: (_, {type, defaultRender, ...rest}, form) => {
           }} />
                                                   <Divider type="vertical" />
                                                   <Popconfirm
-                                                    title="您确定要删除UserProfile吗？"
+                                                    title="Are you sure to delete UserProfile？"
                                                     placement="topRight"
                                                     onConfirm={() => {
                                                       handleRemove([record])
                                                       actionRef.current.reloadAndRest();
                                                     }}
-                                                    okText="确定"
-                                                    cancelText="取消"
+                                                    okText="Confirm"
+                                                    cancelText="Cancel"
                                                   >
-                                                    <DeleteOutlined title="删除" className="icon" />
+                                                    <DeleteOutlined title="Delete" className="icon" />
                                                   </Popconfirm>
                                                 </>
                                               ),
@@ -422,17 +422,17 @@ renderFormItem: (_, {type, defaultRender, ...rest}, form) => {
         scroll={{ x: '100%' }}
         columnsStateMap={columnsStateMap}
         onColumnsStateChange={(map) => setColumnsStateMap(map)}
-        headerTitle="UserProfile表格"
+        headerTitle="UserProfile Form"
         actionRef={actionRef}
         rowKey="id"
         toolBarRender={(action, { selectedRows }) => [
           <Button type="primary" onClick={() => handleModalVisible(true)}>
-            <PlusOutlined /> 新建
+            <PlusOutlined /> New
           </Button>,
           <Button type="primary" onClick={() => exportExcelAll(paramState, queryUserProfile, table_columns, 'UserProfile-All')}>
-            <ExportOutlined /> 导出全部
+            <ExportOutlined /> Export all
           </Button>,
-          <Input.Search style={{ marginRight: 20 }} placeholder="搜索UserProfile" onSearch={value => {
+          <Input.Search style={{ marginRight: 20 }} placeholder="Search UserProfile" onSearch={value => {
             setParamState({
               search: value,
             });
@@ -453,20 +453,20 @@ renderFormItem: (_, {type, defaultRender, ...rest}, form) => {
                   }}
                   selectedKeys={[]}
                 >
-                  <Menu.Item key="remove">批量删除</Menu.Item>
-                  <Menu.Item key="export_current">导出已选</Menu.Item>
+                  <Menu.Item key="remove">Delete Selected Items</Menu.Item>
+                  <Menu.Item key="export_current">Export Selected Items</Menu.Item>
                 </Menu>
               }
             >
               <Button>
-                批量操作 <DownOutlined />
+                Operate Selected Items <DownOutlined />
               </Button>
             </Dropdown>
           ),
         ]}
         tableAlertRender={({ selectedRowKeys, selectedRows }) => (
           selectedRowKeys.length > 0 ? <div>
-            已选择{' '}
+            Selected{' '}
             <a
               style={{
                 fontWeight: 600,
@@ -474,7 +474,7 @@ renderFormItem: (_, {type, defaultRender, ...rest}, form) => {
             >
               {selectedRowKeys.length}
             </a>{' '}
-            项&nbsp;&nbsp;
+            Items&nbsp;&nbsp;
           </div> : false
 
         )}
@@ -552,16 +552,16 @@ renderFormItem: (_, {type, defaultRender, ...rest}, form) => {
                             wrapperCol={{
                               span: 15,
                             }}
-                            label="密码"
+                            label="password "
                             name="password"
                             rules={[
                               {
                                 required: true,
-                                message: '请输入密码！',
+                                message: 'Please input password！',
                               },
                             ]}
                           >
-                            <Input.Password placeholder="请输入密码" type="password" />
+                            <Input.Password placeholder="Please input password" type="password" />
                           </FormItem>
                           <FormItem
                             labelCol={{
@@ -570,16 +570,16 @@ renderFormItem: (_, {type, defaultRender, ...rest}, form) => {
                             wrapperCol={{
                               span: 15,
                             }}
-                            label="重复密码"
+                            label="re-enter password "
                             name="re_password"
                             rules={[
                               {
                                 required: true,
-                                message: '请输入重复密码',
+                                message: 'Please re-enter password',
                               },
                             ]}
                           >
-                            <Input.Password placeholder="请再次输入密码" type="password" />
+                            <Input.Password placeholder="Please re-enter password" type="password" />
                           </FormItem>
     
                         </Form>

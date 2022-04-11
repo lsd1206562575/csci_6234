@@ -9,7 +9,7 @@ const UpdatePasswordForm = props => {
   return (
     <Modal
       destroyOnClose
-      title={`修改用户 ${userName} 的密码`}
+      title={`Change user ${userName} password`}
       visible={updateModalVisible}
       onOk={handleUpdate}
       onCancel={() => onCancel()}
