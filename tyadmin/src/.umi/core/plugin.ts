@@ -1,24 +1,24 @@
 // @ts-nocheck
-import { Plugin } from 'D:/Projects/Python_Projects/csci_6234/tyadmin/node_modules/@umijs/runtime';
+import { Plugin } from '/Users/wantingwang/project/csci_6234/tyadmin/node_modules/@umijs/runtime';
 
 const plugin = new Plugin({
   validKeys: ['modifyClientRenderOpts','patchRoutes','rootContainer','render','onRouteChange','dva','getInitialState','locale','locale','request',],
 });
 plugin.register({
-  apply: require('D:/Projects/Python_Projects/csci_6234/tyadmin/node_modules/umi-plugin-antd-icon-config/lib/app.js'),
-  path: 'D:/Projects/Python_Projects/csci_6234/tyadmin/node_modules/umi-plugin-antd-icon-config/lib/app.js',
+  apply: require('/Users/wantingwang/project/csci_6234/tyadmin/node_modules/umi-plugin-antd-icon-config/lib/app.js'),
+  path: '/Users/wantingwang/project/csci_6234/tyadmin/node_modules/umi-plugin-antd-icon-config/lib/app.js',
 });
 plugin.register({
-  apply: require('D:/Projects/Python_Projects/csci_6234/tyadmin/src/.umi/plugin-dva/runtime.tsx'),
-  path: 'D:/Projects/Python_Projects/csci_6234/tyadmin/src/.umi/plugin-dva/runtime.tsx',
+  apply: require('/Users/wantingwang/project/csci_6234/tyadmin/src/.umi/plugin-dva/runtime.tsx'),
+  path: '/Users/wantingwang/project/csci_6234/tyadmin/src/.umi/plugin-dva/runtime.tsx',
 });
 plugin.register({
   apply: require('../plugin-initial-state/runtime'),
   path: '../plugin-initial-state/runtime',
 });
 plugin.register({
-  apply: require('D:/Projects/Python_Projects/csci_6234/tyadmin/src/.umi/plugin-locale/runtime.tsx'),
-  path: 'D:/Projects/Python_Projects/csci_6234/tyadmin/src/.umi/plugin-locale/runtime.tsx',
+  apply: require('/Users/wantingwang/project/csci_6234/tyadmin/src/.umi/plugin-locale/runtime.tsx'),
+  path: '/Users/wantingwang/project/csci_6234/tyadmin/src/.umi/plugin-locale/runtime.tsx',
 });
 plugin.register({
   apply: require('../plugin-model/runtime'),

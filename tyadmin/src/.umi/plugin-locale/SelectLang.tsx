@@ -54,30 +54,30 @@ const transformArrayToObject = (allLangUIConfig:LocalData[])=>{
 }
 
 const defaultLangUConfigMap = {
-  // 'zh-CN': {
-  //   lang: 'zh-CN',
-  //   label: '简体中文',
-  //   icon: '🇨🇳',
-  //   title: '语言'
-  // },
-  // 'zh-TW': {
-  //   lang: 'zh-TW',
-  //   label: '繁体中文',
-  //   icon: '🇭🇰',
-  //   title: '語言'
-  // },
+  'zh-CN': {
+    lang: 'zh-CN',
+    label: '简体中文',
+    icon: '🇨🇳',
+    title: '语言'
+  },
+  'zh-TW': {
+    lang: 'zh-TW',
+    label: '繁体中文',
+    icon: '🇭🇰',
+    title: '語言'
+  },
   'en-US': {
     lang: 'en-US',
     label: 'English',
     icon: '🇺🇸',
     title: 'Language'
   },
-  // 'pt-BR': {
-  //   lang: 'pt-BR',
-  //   label: 'Português',
-  //   icon: '🇧🇷',
-  //   title: 'Idiomas'
-  // }
+  'pt-BR': {
+    lang: 'pt-BR',
+    label: 'Português',
+    icon: '🇧🇷',
+    title: 'Idiomas'
+  }
 };
 
 export const SelectLang: React.FC<SelectLangProps> = (props) => {
@@ -114,12 +114,12 @@ export const SelectLang: React.FC<SelectLangProps> = (props) => {
           </span>{' '}
           {allLangUIConfig['en-US']?.label || 'en-US'}
         </Menu.Item>
-        {/* <Menu.Item key={'zh-CN'} style={menuItemStyle}>
+        <Menu.Item key={'zh-CN'} style={menuItemStyle}>
           <span role='img' aria-label={allLangUIConfig['zh-CN']?.label  || 'zh-CN'}>
             {allLangUIConfig['zh-CN']?.icon || "🌐"}
           </span>{' '}
           {allLangUIConfig['zh-CN']?.label || 'zh-CN'}
-        </Menu.Item> */}
+        </Menu.Item>
     </Menu>
   );
 

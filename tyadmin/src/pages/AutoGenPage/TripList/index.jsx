@@ -25,44 +25,44 @@ const TableList = () => {
   const updateFormRef = useRef();
 
   const handleAdd = async fields => {
-    const hide = message.loading('正在添加');
+    const hide = message.loading('Adding');
 
     try {
       await addTrip({ ...fields });
       hide();
-      message.success('添加成功');
+      message.success('Add Successfully');
       return true;
     } catch (error) {
-      return dealError(error, addFormRef, hide, "添加");
+      return dealError(error, addFormRef, hide, "Add");
     }
   };
 
   const handleUpdate = async (value, current_id) => {
-    const hide = message.loading('正在修改');
+    const hide = message.loading('Modifying');
 
     try {
       await updateTrip(value, current_id);
       hide();
-      message.success('修改成功');
+      message.success('Modify Successfully');
       return true;
     } catch (error) {
-      return dealError(error, updateFormRef, hide, "修改");
+      return dealError(error, updateFormRef, hide, "Modify");
     }
   };
 
   const handleRemove = async selectedRows => {
-    const hide = message.loading('正在删除');
+    const hide = message.loading('Deleting');
     if (!selectedRows) return true;
 
     try {
       const ids = selectedRows.map(row => row.id).join(',');
       await removeTrip(ids);
       hide();
-      message.success('删除成功');
+      message.success('Delete Successfully');
       return true;
     } catch (error) {
       hide()
-      return dealRemoveError(error, "删除");
+      return dealRemoveError(error, "Delete");
     }
   };
  
@@ -91,7 +91,7 @@ const TableList = () => {
                              rules: [
                                      {
                       required: true,
-                      message: 'place为必填项',
+                      message: 'place is required',
                      },
                              ],
                              
@@ -106,7 +106,7 @@ const TableList = () => {
                              rules: [
                                      {
                       required: true,
-                      message: 'start_time为必填项',
+                      message: 'start_time is required',
                      },
                              ],
                              
@@ -121,7 +121,7 @@ const TableList = () => {
                              rules: [
                                      {
                       required: true,
-                      message: 'end_time为必填项',
+                      message: 'end_time is required',
                      },
                              ],
                              
@@ -140,7 +140,7 @@ const TableList = () => {
                              
                         },
                           {
-                              title: '操作',
+                              title: 'Operation',
                               dataIndex: 'option',
                               valueType: 'option',
                                     fixed: 'right',
@@ -148,23 +148,23 @@ const TableList = () => {
                               render: (text, record) => (
                                 <>
 
-                                  <EditOutlined title="编辑" className="icon" onClick={async () => {
+                                  <EditOutlined title="Edit" className="icon" onClick={async () => {
                                    record.start_time = record.start_time === null ? record.start_time : moment(record.start_time);record.end_time = record.end_time === null ? record.end_time : moment(record.end_time);
                                     handleUpdateModalVisible(true);
                                     setUpdateFormValues(record);
                                   }} />
                                   <Divider type="vertical" />
                                   <Popconfirm
-                                    title="您确定要删除Trip吗？"
+                                    title="Are you sure to delete Trip？"
                                     placement="topRight"
                                     onConfirm={() => {
                                       handleRemove([record])
                                       actionRef.current.reloadAndRest();
                                     }}
-                                    okText="确定"
-                                    cancelText="取消"
+                                    okText="Confirm"
+                                    cancelText="Cancel"
                                   >
-                                    <DeleteOutlined title="删除" className="icon" />
+                                    <DeleteOutlined title="Delete" className="icon" />
                                   </Popconfirm>
                                 </>
                               ),
@@ -213,17 +213,17 @@ const TableList = () => {
         scroll={{ x: '100%' }}
         columnsStateMap={columnsStateMap}
         onColumnsStateChange={(map) => setColumnsStateMap(map)}
-        headerTitle="Trip表格"
+        headerTitle="Trip Form"
         actionRef={actionRef}
         rowKey="id"
         toolBarRender={(action, { selectedRows }) => [
           <Button type="primary" onClick={() => handleModalVisible(true)}>
-            <PlusOutlined /> 新建
+            <PlusOutlined /> New
           </Button>,
           <Button type="primary" onClick={() => exportExcelAll(paramState, queryTrip, table_columns, 'Trip-All')}>
-            <ExportOutlined /> 导出全部
+            <ExportOutlined /> Export all
           </Button>,
-          <Input.Search style={{ marginRight: 20 }} placeholder="搜索Trip" onSearch={value => {
+          <Input.Search style={{ marginRight: 20 }} placeholder="Search Trip" onSearch={value => {
             setParamState({
               search: value,
             });
@@ -244,20 +244,20 @@ const TableList = () => {
                   }}
                   selectedKeys={[]}
                 >
-                  <Menu.Item key="remove">批量删除</Menu.Item>
-                  <Menu.Item key="export_current">导出已选</Menu.Item>
+                  <Menu.Item key="remove">Delete Selected Items</Menu.Item>
+                  <Menu.Item key="export_current">Export Selected Items</Menu.Item>
                 </Menu>
               }
             >
               <Button>
-                批量操作 <DownOutlined />
+                Operate Selected Items <DownOutlined />
               </Button>
             </Dropdown>
           ),
         ]}
         tableAlertRender={({ selectedRowKeys, selectedRows }) => (
           selectedRowKeys.length > 0 ? <div>
-            已选择{' '}
+            Selected{' '}
             <a
               style={{
                 fontWeight: 600,
@@ -265,7 +265,7 @@ const TableList = () => {
             >
               {selectedRowKeys.length}
             </a>{' '}
-            项&nbsp;&nbsp;
+            Items&nbsp;&nbsp;
           </div> : false
 
         )}
