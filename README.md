@@ -36,8 +36,8 @@ Add your new app name and run the command below (Don't need new app name if you 
 ```
 python manage.py gen_all && cd tyadmin && npm run build && cd ../
 ```
-## 2. How to Generate new front-end pages?——这条给修改前端看的
+## 2. How to Generate new front-end pages?
 
 ```
-cd tyadmin && npm run build && cd ../ #做完这个后照步骤2运行
+cd tyadmin && npm run build && cd ../
 ```
