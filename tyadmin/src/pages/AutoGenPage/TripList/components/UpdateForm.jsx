@@ -6,7 +6,7 @@ const UpdateForm = props => {
   return (
     <Modal
       destroyOnClose
-      title="修改Trip"
+      title="Modify Trip"
       visible={modalVisible}
       width={800}
       onCancel={() => onCancel()}

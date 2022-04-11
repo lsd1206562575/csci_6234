@@ -6,7 +6,7 @@ const UpdateForm = props => {
   return (
     <Modal
       destroyOnClose
-      title="修改UserProfile"
+      title="Modify UserProfile"
       visible={modalVisible}
       width={1200}
       onCancel={() => onCancel()}
