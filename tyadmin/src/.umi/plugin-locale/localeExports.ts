@@ -3,15 +3,15 @@ import {
   createIntl,
   IntlShape,
   MessageDescriptor,
-} from '/Users/wantingwang/project/csci_6234/tyadmin/node_modules/react-intl';
+} from '/Users/zhujie/Downloads/csci_6234/tyadmin/node_modules/react-intl';
 import { ApplyPluginsType } from 'umi';
 import { event, LANG_CHANGE_EVENT } from './locale';
 // @ts-ignore
-import warning from '/Users/wantingwang/project/csci_6234/tyadmin/node_modules/warning/warning.js';
+import warning from '/Users/zhujie/Downloads/csci_6234/tyadmin/node_modules/warning/warning.js';
 
 import { plugin } from '../core/umiExports';
 
-export * from '/Users/wantingwang/project/csci_6234/tyadmin/node_modules/react-intl';
+export * from '/Users/zhujie/Downloads/csci_6234/tyadmin/node_modules/react-intl';
 
 let g_intl: IntlShape;
 
@@ -20,7 +20,7 @@ const useLocalStorage = true;
 export const localeInfo: {[key: string]: any} = {
   'en-US': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/wantingwang/project/csci_6234/tyadmin/src/locales/en-US.js')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/zhujie/Downloads/csci_6234/tyadmin/src/locales/en-US.js')),
     },
     locale: 'en-US',
     antd: {
@@ -30,7 +30,7 @@ export const localeInfo: {[key: string]: any} = {
   },
   'zh-CN': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/wantingwang/project/csci_6234/tyadmin/src/locales/zh-CN.js')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/zhujie/Downloads/csci_6234/tyadmin/src/locales/zh-CN.js')),
     },
     locale: 'zh-CN',
     antd: {
@@ -92,11 +92,11 @@ export const getIntl = (locale?: string, changeIntl?: boolean) => {
     `The current popular language does not exist, please check the locales folder!`,
   );
   // 使用 zh-CN
-  if (localeInfo["zh-CN"]) return createIntl(localeInfo["zh-CN"]);
+  if (localeInfo["en-US"]) return createIntl(localeInfo["en-US"]);
 
   // 如果还没有，返回一个空的
   return createIntl({
-    locale: "zh-CN",
+    locale: "en-US",
     messages: {},
   });
 };
@@ -136,7 +136,7 @@ export const getLocale = () => {
   browserLang = isNavigatorLanguageValid
     ? navigator.language.split('-').join('-')
     : '';
-  return lang || browserLang || "zh-CN";
+  return lang || browserLang || "en-US";
 };
 
 

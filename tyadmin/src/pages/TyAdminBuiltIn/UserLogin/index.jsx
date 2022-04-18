@@ -138,7 +138,7 @@ const Login = props => {
               </Col>
             </Row>
             <Form.Item>
-              <Button size="large" type="primary" className={styles.submit} htmlType="submit">登录</Button>
+              <Button size="large" type="primary" className={styles.submit} htmlType="submit">Login</Button>
             </Form.Item>
           </Form>
         </TabPane>
@@ -202,7 +202,7 @@ const Login = props => {
               </Col>
             </Row>
             <Form.Item>
-              <Button size="large" type="primary" className={styles.submit} htmlType="submit">登录</Button>
+              <Button size="large" type="primary" className={styles.submit} htmlType="submit">Login</Button>
             </Form.Item>
           </Form>
 
