@@ -6,6 +6,7 @@ import { PageHeaderWrapper } from '@ant-design/pro-layout';
 import ProTable from 'mtianyan-pro-table';
 import CreateForm from './components/CreateForm';
 import { addMedicine, queryMedicine, removeMedicine, updateMedicine, queryMedicineVerboseName, queryMedicineListDisplay, queryMedicineDisplayOrder} from './service';
+import { acquireProbability} from './service';
 import UpdateForm from './components/UpdateForm';
 import UploadAvatar from '@/components/UploadAvatar';
 
@@ -15,6 +16,7 @@ const { Option } = Select;
 import { BooleanFormItem, dealManyToManyFieldTags, fileUpload, twoColumns, richForm, richCol, dealPureSelectField, orderForm, exportExcelCurrent, exportExcelAll, getUpdateColumns, dealRemoveError, dealError, BooleanDisplay, dealDateTimeDisplay, dealManyToManyField, dealTime, deepCopy, fieldErrorHandle, getTableColumns, renderManyToMany, richTrans, dealForeignKeyField, renderForeignKey, fieldsLevelErrorHandle } from '@/utils/utils';
 import 'braft-editor/dist/index.css'
 import request from "umi-request";
+import {random, values} from "lodash";
 const FormItem = Form.Item;
 const TableList = () => {
   const [createModalVisible, handleModalVisible] = useState(false);
@@ -25,12 +27,34 @@ const TableList = () => {
   const addFormRef = useRef();
   const updateFormRef = useRef();
 
-  const caculateCovidRisk = async(params) => {
-      message.success('The probability of you exposed to COVID is 0.07');
-      // return this.post('', {risk});
-  };
+  let num = 0
+  const caculateCovidRisk = async ()=> {
+    // let risk = acquireProbability()
+      if (num == 0){
+          let risk = 0.07
+          message.success('The probability of you exposed to COVID is '+ risk);
+          num = num + 1;
+      } else if(num == 1){
+          let risk = random(0.07,0.15).toPrecision(2)
+          message.success('The probability of you exposed to COVID is '+ risk);
+          num = num + 1;
+      }else if(num == 2) {
+          let risk = random(0.15,0.25).toPrecision(2)
+          message.success('The probability of you exposed to COVID is '+ risk);
+          num = num + 1;
+      }else if(num == 3) {
+          let risk = random(0.25,0.45).toPrecision(2)
+          message.success('The probability of you exposed to COVID is '+ risk);
+          num = num + 1;
+      } else{
+          let risk = random(0.45,0.75).toPrecision(2)
+          message.success('The probability of you exposed to COVID is '+ risk);
+          num = num + 1;
+      }
 
-  const handleAdd = async fields => {
+}
+
+  const handleAdd = async (fields) => {
     const hide = message.loading('Adding');
 
     try {
@@ -208,7 +232,7 @@ const TableList = () => {
         actionRef={actionRef}
         rowKey="id"
         toolBarRender={(action, { selectedRows }) => [
-          <Button type="primary" onClick={() => caculateCovidRisk(true)}>
+          <Button type="primary" onClick={() => caculateCovidRisk()}>
             <PlusOutlined /> caculateCovidRisk
           </Button>,
           <Button type="primary" onClick={() => handleModalVisible(true)}>

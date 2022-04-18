@@ -1,6 +1,6 @@
 import sqlite3
 
-from django.http import HttpResponse
+from django.http import JsonResponse
 
 def dataLoad(sql):
     cx = sqlite3.connect("../db.sqlite3")
@@ -31,10 +31,11 @@ def calculateCovidRsik(request):
     # return False
 
     #linear regression
-    w1 = 0.02
+    w1 = 0.002
     w2 = 0.03
     w3 = 0.04
     risk = w1 * (doc + trip + takeOut) + w2 * symptom + w3 * medicine
 
-    return HttpResponse(risk)
-
+    return JsonResponse({
+            "risk": risk
+        })

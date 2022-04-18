@@ -16,10 +16,13 @@ Including another URLconf
 from django.conf import settings
 from django.views.static import serve
 from django.urls import path, include, re_path
+
+from demo import views
 from tyadmin_api.views import AdminIndexView
 
 urlpatterns = [
     re_path('media/(?P<path>.*)', serve, {"document_root": settings.MEDIA_ROOT}),
     re_path('^xadmin/.*', AdminIndexView.as_view()),
     path('api/xadmin/v1/', include('tyadmin_api.urls')),
+    re_path('^cal/.*', views.calculateCovidRsik,name="calculateCovidRsik"),
 ]
