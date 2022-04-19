@@ -3,8 +3,8 @@ import './core/polyfill';
 import '../global.jsx';
 import { plugin } from './core/plugin';
 import { createHistory } from './core/history';
-import { ApplyPluginsType } from '/Users/zhujie/Downloads/csci_6234/tyadmin/node_modules/@umijs/runtime';
-import { renderClient } from '/Users/zhujie/Downloads/csci_6234/tyadmin/node_modules/@umijs/renderer-react/dist/index.js';
+import { ApplyPluginsType } from 'D:/Projects/Python_Projects/csci_6234/tyadmin/node_modules/@umijs/runtime';
+import { renderClient } from 'D:/Projects/Python_Projects/csci_6234/tyadmin/node_modules/@umijs/renderer-react/dist/index.js';
 
 
 require('../global.less');

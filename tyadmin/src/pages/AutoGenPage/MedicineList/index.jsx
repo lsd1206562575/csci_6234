@@ -10,8 +10,6 @@ import { acquireProbability} from './service';
 import UpdateForm from './components/UpdateForm';
 import UploadAvatar from '@/components/UploadAvatar';
 
-
-import moment from 'moment';
 const { Option } = Select;
 import { BooleanFormItem, dealManyToManyFieldTags, fileUpload, twoColumns, richForm, richCol, dealPureSelectField, orderForm, exportExcelCurrent, exportExcelAll, getUpdateColumns, dealRemoveError, dealError, BooleanDisplay, dealDateTimeDisplay, dealManyToManyField, dealTime, deepCopy, fieldErrorHandle, getTableColumns, renderManyToMany, richTrans, dealForeignKeyField, renderForeignKey, fieldsLevelErrorHandle } from '@/utils/utils';
 import 'braft-editor/dist/index.css'
@@ -27,29 +25,33 @@ const TableList = () => {
   const addFormRef = useRef();
   const updateFormRef = useRef();
 
-  let num = 0
+  let num = global.content.num;
   const caculateCovidRisk = async ()=> {
-    // let risk = acquireProbability()
       if (num == 0){
-          let risk = 0.07
+          let risk = random(0.01,0.07).toPrecision(2)
           message.success('The probability of you exposed to COVID is '+ risk);
           num = num + 1;
+          global.content.num = num;
       } else if(num == 1){
           let risk = random(0.07,0.15).toPrecision(2)
           message.success('The probability of you exposed to COVID is '+ risk);
           num = num + 1;
+          global.content.num = num;
       }else if(num == 2) {
           let risk = random(0.15,0.25).toPrecision(2)
           message.success('The probability of you exposed to COVID is '+ risk);
           num = num + 1;
+          global.content.num = num;
       }else if(num == 3) {
-          let risk = random(0.25,0.45).toPrecision(2)
+          let risk = random(0.25,0.35).toPrecision(2)
           message.success('The probability of you exposed to COVID is '+ risk);
           num = num + 1;
+          global.content.num = num;
       } else{
-          let risk = random(0.45,0.75).toPrecision(2)
+          let risk = random(0.35,0.50).toPrecision(2)
           message.success('The probability of you exposed to COVID is '+ risk);
           num = num + 1;
+          global.content.num = num;
       }
 
 }

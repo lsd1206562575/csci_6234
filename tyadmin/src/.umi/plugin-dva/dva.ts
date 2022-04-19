@@ -3,7 +3,7 @@ import { Component } from 'react';
 import { ApplyPluginsType } from 'umi';
 import dva from 'dva';
 // @ts-ignore
-import createLoading from '/Users/zhujie/Downloads/csci_6234/tyadmin/node_modules/dva-loading/dist/index.esm.js';
+import createLoading from 'D:/Projects/Python_Projects/csci_6234/tyadmin/node_modules/dva-loading/dist/index.esm.js';
 import { plugin, history } from '../core/umiExports';
 
 let app:any = null;
@@ -28,10 +28,10 @@ export function _onCreate(options = {}) {
   (runtimeDva.plugins || []).forEach((plugin:any) => {
     app.use(plugin);
   });
-  app.model({ namespace: 'global', ...(require('/Users/zhujie/Downloads/csci_6234/tyadmin/src/models/global.js').default) });
-app.model({ namespace: 'login', ...(require('/Users/zhujie/Downloads/csci_6234/tyadmin/src/models/login.js').default) });
-app.model({ namespace: 'setting', ...(require('/Users/zhujie/Downloads/csci_6234/tyadmin/src/models/setting.js').default) });
-app.model({ namespace: 'user', ...(require('/Users/zhujie/Downloads/csci_6234/tyadmin/src/models/user.js').default) });
+  app.model({ namespace: 'global', ...(require('D:/Projects/Python_Projects/csci_6234/tyadmin/src/models/global.js').default) });
+app.model({ namespace: 'login', ...(require('D:/Projects/Python_Projects/csci_6234/tyadmin/src/models/login.js').default) });
+app.model({ namespace: 'setting', ...(require('D:/Projects/Python_Projects/csci_6234/tyadmin/src/models/setting.js').default) });
+app.model({ namespace: 'user', ...(require('D:/Projects/Python_Projects/csci_6234/tyadmin/src/models/user.js').default) });
   return app;
 }
 
