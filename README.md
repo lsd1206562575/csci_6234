@@ -1,7 +1,7 @@
 # csci_6234
 This repo is for csci_6234 Object-Oriented Design--GW Covid Dashboard. Our gourp members are Jie Zhu, Shudong Lai, Simin Liu, Wanting Wang.
 
-The [link](https://drive.google.com/drive/folders/1fQqzTDEGATH0uMpA9TuOiRXBjytF01dU?usp=drive_link) for Slides and demo video
+The [link](https://drive.google.com/drive/folders/1doe0bU618mG-PSOf8MWN2aVmJ9teilvm?usp=drive_link) for Slides and demo video
 
 ## 1. Download project and Install requirement
 ```
